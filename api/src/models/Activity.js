@@ -1,32 +1,41 @@
-const { DataTypes, UUIDV4 } = require('sequelize');
+const { DataTypes } = require("sequelize");
+// Exportamos una funcion que define el modelo
+// Luego le injectamos la conexion a sequelize.
+
+// Actividad Turística con las siguientes propiedades:
+// ID
+// Nombre
+// Dificultad (Entre 1 y 5)
+// Duración
+// Temporada (Verano, Otoño, Invierno o Primavera)
 
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('activity', {
-    id: {
-      type: DataTypes.UUID,
-      primaryKey: true,
-      unique: true,
-      defaultValue: UUIDV4
+  sequelize.define(
+    "activity",
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      difficulty: {
+        type: DataTypes.INTEGER,
+      },
+      duration: {
+        type: DataTypes.INTEGER,
+      },
+      season: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    difficulty: {
-      type: DataTypes.INTEGER,
-      validate: {
-        max: 5,
-        min: 1
-      }
-    },
-    duration: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    season: {
-      type: DataTypes.ENUM('Summer', 'Autum', 'Winter', 'Spring'),
-      allowNull: false,
-    },
-  });
+    {
+      timestamps: false,
+      createdAt: false,
+      updateAt: false,
+    }
+  );
 };
