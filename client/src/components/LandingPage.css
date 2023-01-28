@@ -1,0 +1,62 @@
+
+
+header{
+    width: 100%;
+    height: 100%; 
+    position:absolute; 
+    background-image: url("C:\Users\noqui\OneDrive\Documentos\PI-Countries-main\client\src\pictures\mosaico.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
+   
+   .texto{
+       transform: translate(50%, 180%); 
+       position: absolute;
+   }
+   
+   
+   .texto h1{
+       position: absolute;
+       font-family:Verdana, Geneva, Tahoma, sans-serif;
+       transform: translate(50%, 50%);
+       font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+       font: bold;
+       
+       font-size: 95px;
+       color:  rgba(61, 141, 94, 0.963);
+       text-shadow: 0 9px 16px rgba(0, 0, 0, 0.557);
+   }
+   
+   .texto p{
+       position: absolute;
+       color: rgba(60, 141, 16, 0.963);
+       font-size: 60PX;
+       font: bold;
+       transform: translate(630%, 100%);
+       font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+       /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+       font-size: 30PX;
+       font: bold;
+       transform: translate(732%, 420%);
+       text-justify: auto;
+       color: #5a8c64;
+        */
+   }
+   
+   .texto button{
+       position: absolute;
+       font-family:Verdana, Geneva, Tahoma, sans-serif;
+       width: 100px;
+       border-radius: 8PX;
+       height: 30px;
+       color:  rgba(54, 136, 54, 0.963);
+       border-color: #c3c7e6;
+       transform: translate(700%,800%);
+       font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+       /*
+       font: bold;
+       font-size: 20px;
+       background-color: #301470 ;
+       box-shadow: 0 9px 15px rgba(48, 53, 47, 0.505);
+       transform: translate(450%,500%); */
+   }

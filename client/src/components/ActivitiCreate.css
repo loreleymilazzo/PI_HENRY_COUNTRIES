@@ -1,0 +1,112 @@
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #4c5298b0;
+    padding: 80px;
+    border-radius: 10px;
+    
+    }
+    
+    .tem1 input{
+        padding-right: 30px;
+        margin-left: 10px;
+        border-radius: 5px;
+        height: 15px;
+        align-items: center;
+    }
+    
+    .act1 input{
+        padding-right: 30px;
+        margin-left: 10px;
+        border-radius: 5px;
+        height: 25px;
+        align-items: center;
+    }
+    .imagen img{
+        padding-right: 100px;
+        margin-left: 50px;
+        border-radius: 10px;
+        height: 150px;
+        align-items: center;
+        transform: translate(120%, 100%);
+    }
+    .dur1 input{
+        padding-right: 30px;
+        margin-left: 10px;
+        border-radius: 5px;
+        height: 25px;
+        align-items: center;
+    }
+    
+    h1{
+        padding-top: 2px;
+        padding-bottom: 15px;
+    }
+    
+    .act{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .divOcc img{
+        height: 100px;
+        width: 150px;
+        padding: 10px;
+    }
+    
+    .caja-de-paises{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        border-radius: 15px;
+       
+        
+    
+    }
+    .botonX{
+        transform: translate(-23%, -5%);
+        border-radius: 45px;
+        height: 20px;
+        width: 20px;
+        border-color: #5A7E8C;
+        color: #fafcfe;
+        font: bold;
+        background-color: #eaeff3;
+        margin-top: 10px;
+    
+        
+    
+    }
+    
+    .divOcc{
+        display: flex;
+        margin: 10px;
+        width: 150px;
+        height: 191px;
+        background-color: aliceblue;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        border-radius: 15px;
+        
+    }
+    .divOcc p{
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    
+    .act1 {
+        padding-bottom: 15px;
+    }
+    
+    .dif1{
+        padding-bottom: 15px;
+    }
+    
+    .dur1{
+        padding-bottom: 15px;
+    }
+    .tem1{
+        padding-bottom: 15px;
+    }
