@@ -15,8 +15,8 @@ module.exports = (sequelize) => {
           min: 1,
           max: 12,
           isEven(value) {
-            if(value < 1 || value > 12) {
-              throw new Error('Solo valores entre 1 y 12!')
+            if(value < 1 || value > 5) {
+              throw new Error('Solo valores entre 1 y 5!')
             }
           }
         }

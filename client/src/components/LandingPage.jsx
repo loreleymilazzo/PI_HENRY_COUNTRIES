@@ -7,7 +7,7 @@ export default function LandingPage(){
         <header  >
         <div className='texto' >
             <h1>Countries</h1>
-         
+            {/* <p>PI Henry's</p> */}
             <Link to ='/home'>
                 <button>Inicio</button>
             </Link>

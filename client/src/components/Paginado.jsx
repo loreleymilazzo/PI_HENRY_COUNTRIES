@@ -1,21 +1,22 @@
-import React from 'react'; 
+import React from 'react';
 import './Paginado.css';
 
-export default function Paginado ({countriesPerPage, allCountries, paginado}) {
-    const pageNumbers = [];
+export default function Paginado({ allCountries, countriesPerPage, paginado, currentPage }) {
+  let pageNumbers = [];
+  let itemsPerPage = currentPage === 1 ? 9 : 10;
+  for (let i = 0; i < Math.ceil(allCountries / itemsPerPage); i++) pageNumbers.push(i);
 
-    for ( let i = 1; i <= Math.ceil(allCountries/countriesPerPage); i++){  
-        pageNumbers.push(i)        
-    }
-    return(
-        <nav className='pag'>
-             <ul className='pagination'>
-                 { pageNumbers && pageNumbers.map(number =>(           
-                 <li className='pagination' key={number}> 
-                    <a onClick={()=> paginado(number)}>{number}</a>
-                 </li>
-            ))}
-            </ul>
-        </nav>
-    )
+  return (
+    <div className='paginadoContainer'>
+      <div className='currentPag' onClick={() => {
+        if (currentPage > 1) paginado(currentPage - 1)
+      }}>{'<<'}</div>
+      {
+        pageNumbers.map(p => <div className='currentPag' key={p} onClick={() => paginado(p + 1)}>{p + 1}</div>)
+      }
+      <div className='currentPag' onClick={() => {
+        if (currentPage < allCountries) paginado(currentPage + 1)
+      }}>{'>>'}</div>
+    </div>
+  )
 }

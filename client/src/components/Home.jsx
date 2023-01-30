@@ -24,16 +24,26 @@ export default function Home () {
     const allCountries = useSelector ((state)=> state.countries) // es lo mismo que hacer el MyStateToProps
     const [currentPage, setCurrentPage] = useState(1)
     const [orden, setOrden] = useState ('');
-    const [countriesPerPage] = useState(10) // cantidad de card que quiero que se muestre 
+    const [countriesPerPage, setCountriesPerPage] = useState(9);
+   // const [countriesPerPage] = useState(10)  cantidad de card que quiero que se muestre 
     const indexOfLastCountries = currentPage * countriesPerPage
     const indexOfFirstCountries = indexOfLastCountries - countriesPerPage
     const currentCountries = allCountries.slice(indexOfFirstCountries, indexOfLastCountries)
 
 
+    const handlePageChange = (page) => {
+        if (page === 1) {
+          setCountriesPerPage(9);
+        } else {
+          setCountriesPerPage(10);
+        }
+        setCurrentPage(page);
+      };
 
-    const paginado = (pageNumber)=> {
-        setCurrentPage(pageNumber)
-    }
+
+    // const paginado = (pageNumber)=> {
+    //     setCurrentPage(pageNumber)
+    // }
     
 
 useEffect(()=>{
@@ -115,11 +125,8 @@ return(
     </div>
     <div className='container app-cont'>
         <div className='barr3'>
-            <Paginado
-            countriesPerPage={countriesPerPage}
-            allCountries = {allCountries.length}
-            paginado = {paginado}
-            />
+            <Paginado currentPage={currentPage} allCountries={allCountries.length} countriesPerPage={countriesPerPage} paginado={handlePageChange}/>
+            
         </div>
         <div className= "container grid">
             {currentCountries.map(c=>{

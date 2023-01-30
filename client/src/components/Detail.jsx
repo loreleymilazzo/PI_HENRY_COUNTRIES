@@ -16,7 +16,7 @@ export default function Detail (){
     useEffect(() => {
         dispatch(getDetail(id));
     },[dispatch, id]);
-    //agregue id para que cada vez que id cambie se vuelva a ejecutar el efecto y se dispare la acción "getDetail" con el nuevo "id" seleccionado.
+   
 
     
     const myCountry = useSelector ((state)=> state.detail)

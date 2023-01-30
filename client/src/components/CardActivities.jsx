@@ -9,7 +9,7 @@ export default function CardActivities({name, dificultad , duracion, temporada }
 <div className="body1">
     <div className='card-g1'>
         <div className='face fuente'>
-            <h2>Actividad: {name}.</h2>
+            <h2>Actividad: {name}</h2>
             <h4>Dificultad: {dificultad}</h4>
             <h6>Duracion: {duracion}</h6>
             <h6>Temporada: {temporada}</h6>             

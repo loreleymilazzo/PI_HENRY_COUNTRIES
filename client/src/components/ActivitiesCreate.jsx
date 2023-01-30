@@ -3,7 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import {addActivities, getActivities} from "../actions/index";
 import {useDispatch, useSelector} from "react-redux";
 import mundito from "../pictures/countries.png";
-import './ActivitiCreate.css';
+import './ActivitiesCreate.css';
 
 function validate(input){   
     let errors = {};
