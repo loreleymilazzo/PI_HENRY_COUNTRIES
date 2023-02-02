@@ -1,10 +1,12 @@
 import React from 'react';
 import './Paginado.css';
 
-export default function Paginado({ allCountries, countriesPerPage, paginado, currentPage }) {
+export default function Paginado({ allCountries, countriesPerPage, paginado, currentPage = 1 }) {
+ 
   let pageNumbers = [];
   let itemsPerPage = currentPage === 1 ? 9 : 10;
   for (let i = 0; i < Math.ceil(allCountries / itemsPerPage); i++) pageNumbers.push(i);
+ 
 
   return (
     <div className='paginadoContainer'>

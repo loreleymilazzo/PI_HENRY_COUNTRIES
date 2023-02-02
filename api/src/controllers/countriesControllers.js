@@ -3,7 +3,7 @@ const {Countries, Activities} = require ('../db');
 
 
 async function  getApiInfo() {
-    const apiUrl = await axios.get("https://restcountries.com/v3/all") // traigo toda la info de la api 
+    const apiUrl = await axios.get("https://restcountries.com/v3/all")  
     const apiInfo = await apiUrl.data.map(el => {
             return {
             id: el.cca3,
@@ -15,26 +15,25 @@ async function  getApiInfo() {
             area: el.area,
             population: el.population,
             borders: el.borders? el.borders.map(border=> {return border}) : "No limita con ningun pais", 
-            
-        }; //traigo solo los datos que necesito
+            platillo: el.platillo,
+        }; 
 }); 
 
     return apiInfo;
     
 };
 async function getDbInfo () {
-    //traigo info de base de datos con findAll 
+   
     return await Countries.findAll({
       includes: Activities,
              
     })
 } 
 
-//junto la info y la devuelvo
 async function getAllCountries (){
-    const apiInfo = await getApiInfo(); // llamo a la función
-    const dbInfo = await getDbInfo();// llamo a la función
-    const infoTotal = dbInfo.concat(apiInfo); //concateno
+    const apiInfo = await getApiInfo(); 
+    const dbInfo = await getDbInfo();
+    const infoTotal = dbInfo.concat(apiInfo); 
        return infoTotal;
 }
 
@@ -58,9 +57,9 @@ async function countriesID (req, res){
 
 
  async function allCountries (req, res) { 
-    let allCountries = await Countries.findAll({include:Activities}); //consulta la base de datos
-    const id = req.query.id; //lo puedo buscar por id 
-    const name = req.query.name; //lo puedo buscar por name
+    let allCountries = await Countries.findAll({include:Activities}); 
+    const id = req.query.id; 
+    const name = req.query.name; 
 
     if(!allCountries.length){ 
         allCountries = await getApiInfo();

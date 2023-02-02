@@ -1,25 +1,28 @@
 
 
-.containerr {
-    display: flex;
-    align-items: center;
+.form {
+    background-color: transparent;
+    margin-left: -40px;
     
 }
 
-.containerr input{
- width: 130px;  
- height: 30px;
- border-bottom-left-radius: 10px;
- border-top-left-radius: 10px;
- 
+.btn{
+ /* width: 130px;  
+ height: 30px; */
+ background-color: #2f2b4e;
+ color:  #f7f7fa;
+ /* box-shadow: 0 9px 5px rgba(46, 47, 68, 0.505); */
+ padding-right: 10px;
+    border-radius: 5px;
 
 }
 
 
-.btnn button {
+.button {
     width: 60px;
     height: 30px;
-    border-bottom-right-radius: 10px;
+    align-items: center;
+    border-bottom-right-radius: 60px;
     border-top-right-radius: 10px;
     color: #f9f9f9;
     border-color: #3333bc;
@@ -30,5 +33,7 @@
     box-shadow: 0 9px 15px rgba(46, 47, 68, 0.505);
     
 }
+ 
+
 
 

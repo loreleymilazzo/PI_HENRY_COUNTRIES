@@ -16,8 +16,8 @@
 
 .card-g {
     position:relative;
-    width: 210px;
-    height: 160px;
+    width: 220px;
+    height: 220px;
 }
 
 .card-g .face{
@@ -83,7 +83,7 @@ transition: .5s ;
     bottom: 0;
     width: 100%;
     height: 150px;
-    line-height: 40px;
+    line-height: 50px;
     color: rgb(254, 249, 249);
     background: rgba(0, 0, 0, 0.352);
     text-align: center;
@@ -113,7 +113,7 @@ transition: .5s ;
     /* bottom: 0; */
     width: 100%;
     height: 160px;
-    line-height: 250px;
+    line-height: 280px;
     color: rgb(254, 249, 249);
     background: rgba(0, 0, 0, 0.352);
     text-align: center;
@@ -133,7 +133,7 @@ transition: .5s ;
     bottom: 0;
     width: 100%;
     height: 100px;
-    line-height: 115px;
+    line-height: 100px;
     color: rgb(254, 249, 249);
     /* background: rgba(0, 0, 0, 0.352); */
     text-align: center;

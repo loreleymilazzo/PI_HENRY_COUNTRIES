@@ -1,5 +1,21 @@
 import axios from 'axios';
 
+export function searchCountries(search) {
+    return async function (dispatch) {
+      try {
+        var json = await axios.get(
+          "http://localhost:3001/countries?name=" + search
+        );
+        return dispatch({
+          type: "SEARCH_COUNTRIES",
+          payload: json.data,
+        });
+      } catch (error) {
+        alert("El país no existe");
+      }
+    };
+  }
+
 export function getCountries() {
     return async function (dispatch) {
         var json = await axios.get("http://localhost:3001/countries",{
@@ -80,6 +96,8 @@ export function orderByPopulation(payload){
 }
 
 
+
+
 export function getDetail (id){
     return async function(dispach){
         try {
@@ -96,7 +114,11 @@ export function getDetail (id){
 }
 
 
-
+export function clearDetail() {
+    return {
+    type: "CLEAR_DETAIL"
+    };
+    }
 
 
 

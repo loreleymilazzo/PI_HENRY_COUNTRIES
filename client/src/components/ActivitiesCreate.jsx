@@ -7,16 +7,27 @@ import './ActivitiesCreate.css';
 
 function validate(input){   
     let errors = {};
-    if (!input.name){
-        errors.name = 'completar actividad'
-    }else if (!input.dificultad) {
-        errors.dificultad = 'completar dificultad'
+    if (!input.name) {
+        errors.name = 'completar nombre';
+    } else if (!typeof(input.name) === 'string') {
+        errors.name = 'el nombre no es válido';
+    }
+    if (!input.dificultad) {
+        errors.dificultad = 'completar dificultad';
+    } else if (!typeof(input.dificultad) === 'number' || input.dificultad < 0 || input.dificultad > 5) {
+        errors.dificultad = 'el numero no es válido';
+    }
        
-    }else if (!input.duracion) {
-        errors.duracion = 'completar duracion'
+    if (!input.duracion) {
+        errors.duracion = 'completar duracion ';
+    } else if (!typeof(input.duracion) === 'number' || input.duracion < 0 || input.duracion > 12){
+        errors.duracion = 'debe ser entre 1 y 12';
+    }
        
-    }else if (!input.temporada) {
-        errors.temporada = 'completar temporada'
+    if (!input.temporada) {
+        errors.temporada = 'completar temporada';
+    } else if (!typeof(input.temporada) === 'string') {
+        errors.temporada = 'elegir una temporada existente';
     }
     return errors;
 }

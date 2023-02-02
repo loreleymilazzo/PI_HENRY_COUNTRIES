@@ -81,7 +81,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 10vh;
+    min-height: 20vh;
     cursor: pointer;
     border-radius: 10px;
     background-color: rgba(240, 248, 255, 0.443);
@@ -101,6 +101,7 @@
     border-radius: 15px;
     overflow: hidden;
     transition: .5s ;
+    
     }
 
     .card-g .front{
@@ -115,7 +116,7 @@
 
     
     .card-atv{
-         display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     } 

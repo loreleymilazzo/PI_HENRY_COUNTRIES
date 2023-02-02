@@ -1,7 +1,9 @@
 const initialState = {
   countries: [],
   allCountries: [],
-  activities : []
+  activities : [],
+  isDetailShown: false,
+  Detail: null
   
 }
 
@@ -77,10 +79,7 @@ function rootReducer(state = initialState, action) {
 
 
               
-        //   case "POST_COUNTRIES":
-        //       return {
-        //           ...state,
-        //       }
+
 
           case 'GET_ACTIVITIES':
                               
@@ -114,12 +113,24 @@ function rootReducer(state = initialState, action) {
                   ...state,
                   countries: filter
               }
+              case "SEARCH_COUNTRIES":
+                return {
+                  ...state,
+                  countries: action.payload
+                }
 
           case "GET_DETAILS":
               return{
                   ...state,
-                  detail: action.payload 
+                  detail: action.payload ,
+                  isDetailShown: true
               }
+              case 'CLEAR_DETAIL':
+                return {
+                  ...state,
+                  detail: null,
+                  isDetailShown: false,
+                };
 
           default: 
           return state;

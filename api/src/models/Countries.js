@@ -25,6 +25,11 @@ module.exports = (sequelize) => {
       allowNull: false
     },
 
+    platillo: {
+      type:DataTypes.STRING, 
+      defaultValue: "Papas Fritas"
+    },
+
     subregion: {
       type: DataTypes.STRING,
     },

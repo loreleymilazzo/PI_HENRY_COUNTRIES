@@ -1,37 +1,30 @@
-import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { getNameCountries } from "../actions";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchCountries } from "../actions";
 import '../components/SearchBar.css';
 
+export default function SearchBar() {
+  const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
 
-export default function SearchBar({setCurrentPage}){
-    const dispatch = useDispatch()
-    const [name, setName] = useState("")
+  function onSubmit(e) {
+    e.preventDefault();
+    if (search.length === 0) return alert( 'Debes ingresar un país existente');
+    dispatch(searchCountries(search))
+    setSearch('')
+  }
 
-    function handleImputCountries(el){
-        el.preventDefault()
-        setName(el.target.value)
-        console.log(name)    
-    }
-    function handleSubmit(el){
-        el.preventDefault()
-        if(!name) return alert("Debes ingresar un pais")
-        dispatch(getNameCountries(name))
-        setName ("") // Aqui se limpia el valor del imput
-        setCurrentPage(1)
-    }
+  function onInputChange(e) {
+    e.preventDefault();
+    setSearch(e.target.value)
+  }
 
-    return(
-        <div>
-            
-            <div className="containerr">      
-                <input type= 'text'  placeholder = ' Buscar...' onChange={(el) => handleImputCountries(el)} />
-                <div className="btnn">
-                    <button className="search" type="submit"  onClick={(el)=> handleSubmit(el)} >Buscar</button>
-                </div>
-            </div>
-        </div>
-
-    )
+  return (
+    <div>
+      <form className='form' onSubmit={onSubmit}>
+        <input  type='text' placeholder='Elegí un país...' onChange={onInputChange} value={search}/>
+        <input className='btn' type='submit' value='Buscar'/>
+      </form>
+    </div>
+  )
 }

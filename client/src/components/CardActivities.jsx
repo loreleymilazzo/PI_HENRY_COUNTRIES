@@ -11,8 +11,8 @@ export default function CardActivities({name, dificultad , duracion, temporada }
         <div className='face fuente'>
             <h2>Actividad: {name}</h2>
             <h4>Dificultad: {dificultad}</h4>
-            <h6>Duracion: {duracion}</h6>
-            <h6>Temporada: {temporada}</h6>             
+            <h4>Duracion: {duracion}</h4>
+            <h4>Temporada: {temporada}</h4>             
         </div>
     </div>
         

@@ -60,12 +60,16 @@ function handleSort (el){
     el.preventDefault();
     dispatch(orderByName(el.target.value))
     setOrden(`Ordenado ${el.target.value}`)
+    setCurrentPage(1)
+    setCountriesPerPage(9)
     };
 
 function handleSortP (el){
     el.preventDefault();
     dispatch(orderByPopulation(el.target.value))
     setOrden(`Ordenado ${el.target.value}`)
+    setCurrentPage(1)
+    setCountriesPerPage(9)
     };    
   
 
@@ -76,14 +80,15 @@ function handleSelect (el){
 function handleFilterRegion(el){
     dispatch(filterCountriesByRegion(el.target.value))
     setCurrentPage(1)
+     setCountriesPerPage(9)
     }
 
 return(
 <div>
-    <div className='encabe'>
+    <div className='encabezado'>
 
         <div className='container barr'>
-            {/* <img src={countries} alt='' height= '70px' ></img> */}
+       
             <h1>Countries</h1>
             <div className='actividad'>
                 <div >
@@ -99,7 +104,7 @@ return(
                 </div>
             </div>  
             <div className='ordenar'>
-            <select onClick={el=> {handleSort(el)}}>
+            <select onClick={el=> {handleSort(el);}}>
                 <option value = ''>Orden Alfabetico</option>
                 <option value = 'asc'>A-Z</option>
                 <option value = 'desc'>Z-A</option>
@@ -108,7 +113,7 @@ return(
             <div className='ordenar'>
             <select onClick={el=> {handleSortP(el)}}>
                 <option value = ''>Población</option>
-                <option value = 'asc'>Acendente</option>
+                <option value = 'asc'>Ascendente</option>
                 <option value = 'desc'>Descendente</option>
             </select> 
             </div>
@@ -133,7 +138,7 @@ return(
             return ( 
                 <div className='item' >
                     <Link to= {`/detail/${c.id}`} >              
-                        <Card  key= {c.id} name= {c.name} img= {c.img} continents={c.continents} capital = {c.capital} />
+                        <Card  key= {c.id} name= {c.name} img= {c.img} continents={c.continents} platillo= {c.platillo}capital = {c.capital} />
                     </Link> 
                 </div>         
                 );

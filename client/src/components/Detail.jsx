@@ -1,21 +1,25 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from "../actions";
+import { getDetail, clearDetail } from "../actions";
 import { useEffect } from "react";
-import travellingTheWorld from "../pictures/travellingTheWorld.gif"
+import loader2 from "../pictures/loader2.gif"
 import CardActivities from './CardActivities'
 import './Detail.css'
 
 
 export default function Detail (){
-    let {id}= useParams();
+    
     const dispatch = useDispatch()
+    let {id}= useParams();
     
 
     useEffect(() => {
         dispatch(getDetail(id));
-    },[dispatch, id]);
+        return () => {
+            dispatch(clearDetail());
+        };
+    }, [dispatch, id]);
    
 
     
@@ -25,7 +29,7 @@ export default function Detail (){
     console.log(id)
     const numberWithDot = (x) => {
         if(typeof x === 'number') {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            return x.toString().replace( /\B(?=(\d{3})+(?!\d))/g, '.');
         }
     }
 
@@ -44,6 +48,7 @@ export default function Detail (){
                         <h2>Continente: {myCountry.continents}</h2>
                         <h2>Capital: {myCountry.capital}</h2>
                         <h2>Subregion: {myCountry.subregion}</h2>
+                        <h2>Platillo: {myCountry.platillo}</h2>
                         <h2>Área: {numberWithDot(myCountry.area)} km²</h2>
                         <h2>Poblacion: {numberWithDot(myCountry.population)} hab </h2>
                         <h2>Límites: {myCountry.borders} </h2>
@@ -70,7 +75,7 @@ export default function Detail (){
             </div>
         )
             : <div className="gif">
-                <img src={travellingTheWorld} width= "500px" height= "500px" alt="travelling the world" />
+                <img src={loader2} width= "500px" height= "500px" alt="travelling the world" />
                 <p>Loading...</p>
             </div>
     )
