@@ -16,8 +16,8 @@ export default function Card({name, img, continents, platillo, capital }) {
             <h4>{name}</h4>
             <img src={img} alt="img no found" width= '100%' height= '100%'  />  
             <h6>{capital}</h6>
-            <h3>{continents}</h3>
-            <h3>{platillo}</h3>
+            <h5>{continents}</h5>
+            
            
         </div>
     </div>

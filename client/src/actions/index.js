@@ -4,7 +4,7 @@ export function searchCountries(search) {
     return async function (dispatch) {
       try {
         var json = await axios.get(
-          "http://localhost:3001/countries?name=" + search
+          "/countries?name=" + search
         );
         return dispatch({
           type: "SEARCH_COUNTRIES",
@@ -18,7 +18,7 @@ export function searchCountries(search) {
 
 export function getCountries() {
     return async function (dispatch) {
-        var json = await axios.get("http://localhost:3001/countries",{
+        var json = await axios.get("/countries",{
 
         });
         return dispatch({
@@ -31,7 +31,7 @@ export function getCountries() {
 export function getNameCountries(name){
     return async function(dispatch){
         try {
-            var json = await axios.get("http://localhost:3001/countries?name="+ name);
+            var json = await axios.get("/countries?name="+ name);
             return dispatch({
                 type: "GET_NAME_COUNTRIES",
                 payload: json.data
@@ -45,7 +45,7 @@ export function getNameCountries(name){
 
 export function getActivities() {
     return async function (dispatch) {
-        var info = await axios.get("http://localhost:3001/activities",{
+        var info = await axios.get("/activities",{
 
         });
         
@@ -59,7 +59,7 @@ export function getActivities() {
 export function addActivities(payload) {
     return async function (dispatch) {
         
-        var info = await axios.post("http://localhost:3001/activities", payload);
+        var info = await axios.post("/activities", payload);
         return dispatch({
         type: 'ADD_ACTIVITIES',
         payload: info.data
@@ -101,7 +101,7 @@ export function orderByPopulation(payload){
 export function getDetail (id){
     return async function(dispach){
         try {
-            var json = await axios.get(`http://localhost:3001/countries?id=${id}`);           
+            var json = await axios.get(`/countries?id=${id}`);           
             return dispach({
                 type: "GET_DETAILS",
                 payload: json.data[0]
