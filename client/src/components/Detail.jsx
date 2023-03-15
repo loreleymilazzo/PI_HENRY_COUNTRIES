@@ -48,7 +48,7 @@ export default function Detail (){
                         <h2>Continente: {myCountry.continents}</h2>
                         <h2>Capital: {myCountry.capital}</h2>
                         <h2>Subregion: {myCountry.subregion}</h2>
-                        <h2>Platillo: {myCountry.platillo}</h2>
+                        {/* <h2>Platillo: {myCountry.platillo}</h2> */}
                         <h2>Área: {numberWithDot(myCountry.area)} km²</h2>
                         <h2>Poblacion: {numberWithDot(myCountry.population)} hab </h2>
                         <h2>Límites: {myCountry.borders} </h2>

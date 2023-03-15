@@ -3,7 +3,7 @@ import './Card.css';
 
 
 
-export default function Card({name, img, continents, platillo, capital }) {
+export default function Card({name, img, continents, capital }) {
     return(
 
 <div className="body">

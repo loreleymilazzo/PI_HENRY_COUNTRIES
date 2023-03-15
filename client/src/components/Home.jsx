@@ -15,13 +15,14 @@ import norteamerica from "../pictures/norteamerica.png";
 import oceania from "../pictures/oceania.png";
 import antartida from "../pictures/antartida.png";
 import mundo from "../pictures/mundo.png";
+import loadingGif from "../pictures/mapa.gif"
 
 
 
 export default function Home () {
     const dispatch = useDispatch()
     const activities = useSelector((state)=> state.activities)
-    const allCountries = useSelector ((state)=> state.countries) // es lo mismo que hacer el MyStateToProps
+    const allCountries = useSelector ((state)=> state.countries) 
     const [currentPage, setCurrentPage] = useState(1)
     const [orden, setOrden] = useState ('');
     const [countriesPerPage, setCountriesPerPage] = useState(9);
@@ -29,7 +30,7 @@ export default function Home () {
     const indexOfLastCountries = currentPage * countriesPerPage
     const indexOfFirstCountries = indexOfLastCountries - countriesPerPage
     const currentCountries = allCountries.slice(indexOfFirstCountries, indexOfLastCountries)
-
+    const [loading, setLoading] = useState(false);
 
     const handlePageChange = (page) => {
         if (page === 1) {
@@ -46,10 +47,13 @@ export default function Home () {
     // }
     
 
-useEffect(()=>{
-    dispatch(getCountries());
-    dispatch(getActivities());
-   },[dispatch]);
+    useEffect(() => {
+        setLoading(true);
+        dispatch(getCountries())
+          .then(() => setLoading(false))
+          .catch(() => setLoading(false));
+        dispatch(getActivities());
+      }, [dispatch]);
      
 function handleClick(el){
     el.preventDefault();
@@ -105,7 +109,7 @@ return(
             </div>  
             <div className='ordenar'>
             <select onClick={el=> {handleSort(el);}}>
-                <option value = ''>Orden Alfabetico</option>
+                <option value = ''>Orden Alfabético</option>
                 <option value = 'asc'>A-Z</option>
                 <option value = 'desc'>Z-A</option>
             </select> 
@@ -120,7 +124,7 @@ return(
             
             <div className='barr2'>
                 <button onClick={el=> {handleClick(el)}}>
-                Todos los Paises
+                Todos los Países
                 </button>
             </div>
             <div>
@@ -133,18 +137,28 @@ return(
             <Paginado currentPage={currentPage} allCountries={allCountries.length} countriesPerPage={countriesPerPage} paginado={handlePageChange}/>
             
         </div>
-        <div className= "container grid">
-            {currentCountries.map(c=>{
-            return ( 
-                <div className='item' >
-                    <Link to= {`/detail/${c.id}`} >              
-                        <Card  key= {c.id} name= {c.name} img= {c.img} continents={c.continents} platillo= {c.platillo}capital = {c.capital} />
-                    </Link> 
-                </div>         
-                );
-            })}          
-
+        {loading ? (
+  <img src={loadingGif} alt="Loading..." style={{width: "50%", margin: "0 auto", marginTop: '-30px'}} />
+) : (
+  <div className="container grid">
+    {currentCountries.map((c) => {
+      return (
+        <div className="item">
+          <Link to={`/detail/${c.id}`}>
+            <Card
+              key={c.id}
+              name={c.name}
+              img={c.img}
+              continents={c.continents}
+            //  platillo={c.platillo}
+              capital={c.capital}
+            />
+          </Link>
         </div>
+      );
+    })}
+  </div>
+)}
     </div>
         <div className='form'>
             <div className='bloq1'>
