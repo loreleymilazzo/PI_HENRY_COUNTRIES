@@ -1,6 +1,12 @@
 const axios = require ('axios');
 const {Countries, Activities} = require ('../db');
 
+// // sumar.js
+// function sumar(num1, num2) {
+//     const resultado = num1 + num2;
+//     return resultado;
+//   };
+  
 
 async function  getApiInfo() {
     const apiUrl = await axios.get("https://restcountries.com/v3/all")  
@@ -87,5 +93,6 @@ module.exports ={
     getDbInfo,
     getAllCountries,
     countriesID,
-    allCountries
+    allCountries,
+    sumar
  }
