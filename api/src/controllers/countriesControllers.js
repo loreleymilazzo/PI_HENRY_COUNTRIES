@@ -1,11 +1,5 @@
 const axios = require ('axios');
 const {Countries, Activities} = require ('../db');
-
-// // sumar.js
-// function sumar(num1, num2) {
-//     const resultado = num1 + num2;
-//     return resultado;
-//   };
   
 
 async function  getApiInfo() {
@@ -94,5 +88,5 @@ module.exports ={
     getAllCountries,
     countriesID,
     allCountries,
-    sumar
+    
  }
